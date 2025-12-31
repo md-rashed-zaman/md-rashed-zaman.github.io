@@ -17,7 +17,7 @@ export function SkillsSection() {
            { title: "Languages", skills: DATA.skills.languages },
            { title: "Frameworks & Libraries", skills: DATA.skills.frameworks },
            { title: "Databases", skills: DATA.skills.databases },
-           { title: "Tools", skills: DATA.skills.tools }
+           { title: "Tools & Devops", skills: DATA.skills.tools }
          ].map((category, idx) => (
            <div key={idx} className="space-y-4">
               <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">{category.title}</h3>

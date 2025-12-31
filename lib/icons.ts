@@ -22,7 +22,11 @@ const iconMap: Record<string, string> = {
   "Linux": "linux/linux-original",
   "GraphQL": "graphql/graphql-plain",
   "Prisma": "prisma/prisma-original",
-  "LaTeX": "latex/latex-original"
+  "LaTeX": "latex/latex-original",
+  "JUnit": "junit/junit-plain",
+  "gRPC": "grpc/grpc-plain",
+  "CI/CD": "githubactions/githubactions-original",
+  "Github Actions": "githubactions/githubactions-original",
 };
 
 export const darkInvertList = ["Express.js", "Next.js", "GitHub", "LaTeX", "Prisma"];

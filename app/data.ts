@@ -25,10 +25,10 @@ export const DATA = {
     },
   ],
   skills: {
-    languages: ["C++", "Java", "JavaScript", "Go", "TypeScript", "SQL"], // Cleaned names for icons
-    frameworks: ["Spring Boot", "Node.js", "Express.js", "Next.js", "React"],
+    languages: ["C++", "Java", "JavaScript", "Go", "SQL", "TypeScript"], // Cleaned names for icons
+    frameworks: ["Spring Boot", "Node.js", "Express.js", "JUnit", "gRPC", "Next.js"],
     databases: ["MongoDB", "PostgreSQL", "MySQL"],
-    tools: ["Git", "Docker", "Postman", "Linux", "GraphQL", "Prisma"], // Added Docker assuming usage
+    tools: ["Git", "Docker", "CI/CD", "Github Actions", "Postman", "Linux", "GraphQL", "Prisma"], // Added Docker assuming usage
   },
   experience: [
     {
@@ -36,7 +36,7 @@ export const DATA = {
       role: "Software Engineer (Backend)",
       period: "Dec 2024 - Present",
       // ADDED TECH STACK HERE
-      tech: ["Spring Boot", "Node.js", "MongoDB", "REST API"],
+      tech: ["Spring Boot", "Node.js", "MongoDB", "REST API", "JUnit"],
       description: [
         "Worked on key modules like Attendance Management, Lease Management, Petty Cash Management for an ERP system.",
         "Enhanced system features like notifications, hierarchical task flow, pagination, and optimized MongoDB queries for several API calls.",
