@@ -32,12 +32,11 @@
     text-anchor="middle"
     font-family="IBM Plex Sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial"
     font-weight="800"
-    font-size="88"
+    font-size="76"
     fill="#ffffff"
-    letter-spacing="-6"
-  >MR</text>
+    letter-spacing="-8"
+  >MRZ</text>
 
   <!-- Subtle baseline -->
-  <rect x="84" y="170" width="88" height="6" rx="3" fill="#14b8a6" opacity="0.75"/>
+  <rect x="72" y="170" width="112" height="6" rx="3" fill="#14b8a6" opacity="0.75"/>
 </svg>
-
