@@ -4,123 +4,91 @@
 
 @layer base {
   :root {
-    /* === LIGHT MODE (Standard Engineering White) === */
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    /* Warm paper + ink */
+    --background: 36 33% 97%;
+    --foreground: 222 47% 11%;
+    --card: 36 33% 98%;
+    --card-foreground: 222 47% 11%;
+    --popover: 36 33% 98%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 222 47% 11%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --secondary: 36 20% 92%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 36 18% 93%;
+    --muted-foreground: 222 10% 35%;
+    --accent: 36 22% 91%;
+    --accent-foreground: 222 47% 11%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --border: 36 12% 86%;
+    --input: 36 12% 86%;
+    --ring: 171 80% 36%;
     --radius: 0.5rem;
+
+    /* Brand accent */
+    --brand: 171 80% 36%;
+    --brand-foreground: 0 0% 98%;
   }
 
   .dark {
-    /* ========================================================
-       OPTION 1: MIDNIGHT SLATE (Currently Active)
-       A rich, deep blue-grey. Feels like VS Code/GitHub Dark.
-       Best for: Tech portfolios, long reading.
-       ======================================================== */
-    --background: 222 47% 11%; 
+    /* Midnight blueprint */
+    --background: 222 47% 8%;
     --foreground: 210 40% 98%;
-    --card: 217 33% 17%; 
+    --card: 217 33% 14%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 11%;
+    --popover: 222 47% 8%;
     --popover-foreground: 210 40% 98%;
     --primary: 210 40% 98%;
     --primary-foreground: 222 47% 11%;
-    --secondary: 217 33% 17%;
+    --secondary: 217 33% 14%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 217 33% 17%;
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 70%;
+    --accent: 217 33% 14%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 20%;
-    --input: 217 33% 17%;
-    --ring: 212 26% 87%;
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 171 80% 42%;
 
+    --brand: 171 80% 42%;
+    --brand-foreground: 222 47% 8%;
 
-    /* ========================================================
-       OPTION 2: OBSIDIAN (Uncomment to use)
-       Pure, sharp black and neutral greys. 
-       Best for: High contrast, "Apple/Vercel" aesthetic.
-       ======================================================== */
-    /*
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 4%; 
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 9%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 0 0% 9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
-    --ring: 0 0% 80%;
-    */
-
-    /* ========================================================
-       OPTION 3: STANDARD DARK (Uncomment to use)
-       The default Zinc/Slate grey provided by Shadcn.
-       Safe choice, but less unique.
-       ======================================================== */
-    /*
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    */
   }
 }
 
 @layer base {
   * {
     border-color: hsl(var(--border));
-    border-width: 0px;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
     /* The grid pattern automatically adjusts because it uses var(--foreground) */
-    background-image: radial-gradient(hsl(var(--foreground) / 0.1) 1px, transparent 1px);
+    background-image: radial-gradient(hsl(var(--foreground) / 0.08) 1px, transparent 1px);
     background-size: 32px 32px;
     /* Smooth transition when switching themes */
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+  pre,
+  code,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+  }
+  ::selection {
+    background: hsl(var(--brand) / 0.25);
+  }
 }
+
+@layer utilities {}

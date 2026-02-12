@@ -1,40 +1,59 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { ModeToggle } from "@/components/mode-toggle"; // Import the toggle
+import { ModeToggle } from "@/components/mode-toggle";
+import { Button } from "@/components/ui";
+import { DATA } from "@/app/data";
 
 export function Navbar() {
+  const github = DATA.social.find((s) => s.name === "GitHub")?.url ?? "https://github.com/";
+  const linkedin = DATA.social.find((s) => s.name === "LinkedIn")?.url ?? "https://linkedin.com/";
+  const email = DATA.email;
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-4xl items-center mx-auto px-4 md:px-6">
-        <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2 font-bold">
-            <span className="text-lg tracking-tight">RASHED</span>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/50">
+      <div className="mx-auto flex h-14 max-w-5xl items-center px-4 md:px-6">
+        <div className="flex items-center gap-8">
+          <Link href="/" className="group inline-flex items-center gap-3">
+            <span className="grid h-8 w-8 place-items-center rounded-md border bg-card text-sm font-semibold">
+              MR
+            </span>
+            <span className="hidden sm:block font-semibold tracking-tight">{DATA.name}</span>
           </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            <Link href="/" className="transition-colors hover:text-foreground/80 text-foreground">
-              Home
-            </Link>
+
+          <nav className="hidden lg:flex items-center gap-1">
+            {[
+              ["Skills", "#skills"],
+              ["Experience", "#experience"],
+              ["Projects", "#projects"],
+              ["Education", "#education"],
+              ["CP", "#competitive"],
+              ["Contact", "#contact"],
+            ].map(([label, href]) => (
+              <Button key={href} asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+                <Link href={href}>{label}</Link>
+              </Button>
+            ))}
           </nav>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-4">
-           <div className="flex items-center gap-4">
-              {/* Social Icons */}
-              <Link href="https://github.com/md-rashed-zaman" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Github className="h-5 w-5" />
-              </Link>
-              <Link href="https://linkedin.com/in/md-rashed" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </Link>
-              <Link href="mailto:md.rashed.dev@gmail.com" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Mail className="h-5 w-5" />
-              </Link>
-              
-              {/* Separator */}
-              <div className="h-6 w-px bg-border" />
 
-              {/* Dark Mode Toggle */}
-              <ModeToggle />
-           </div>
+        <div className="ml-auto flex items-center gap-2">
+          <Button asChild variant="ghost" size="icon" aria-label="GitHub">
+            <Link href={github} target="_blank" rel="noopener noreferrer">
+              <Github className="h-5 w-5" />
+            </Link>
+          </Button>
+          <Button asChild variant="ghost" size="icon" aria-label="LinkedIn">
+            <Link href={linkedin} target="_blank" rel="noopener noreferrer">
+              <Linkedin className="h-5 w-5" />
+            </Link>
+          </Button>
+          <Button asChild variant="ghost" size="icon" aria-label="Email">
+            <Link href={`mailto:${email}`}>
+              <Mail className="h-5 w-5" />
+            </Link>
+          </Button>
+          <div className="mx-1 h-6 w-px bg-border" />
+          <ModeToggle />
         </div>
       </div>
     </header>

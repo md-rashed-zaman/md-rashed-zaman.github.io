@@ -1,50 +1,83 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Server } from "lucide-react";
-import { Badge } from "@/components/ui";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Badge, Card, CardContent } from "@/components/ui";
 import { DATA } from "@/app/data";
 
 export function ExperienceSection() {
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-24">
-      <div className="flex items-center gap-3 mb-10">
-        <Server className="w-5 h-5" />
-        <h2 className="text-2xl font-bold tracking-tight">Experience</h2>
+    <motion.section
+      id="experience"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="mb-20"
+    >
+      <div className="mb-8 flex items-center gap-3">
+        <Server className="h-5 w-5 text-brand" />
+        <h2 className="text-2xl font-semibold tracking-tight">Experience</h2>
       </div>
-      
-      <div className="relative border-l-2 border-dashed border-muted-foreground/20 ml-3 space-y-12 pb-4">
-        {DATA.experience.map((job, id) => (
-          <div key={id} className="relative pl-12">
-            <div className="absolute -left-[9px] top-2 h-4 w-4 rounded-full border-4 border-background bg-foreground shadow-sm" />
-            
-            <div className="flex flex-col sm:flex-row sm:justify-between mb-2">
-              <div>
-                <h3 className="font-bold text-xl text-foreground">{job.company}</h3>
-                <div className="font-bold text-base text-blue-600 dark:text-blue-400 mt-1 flex items-center gap-2">
-                  {job.role}
-                </div>
-              </div>
-              <span className="mt-2 sm:mt-0 font-mono text-xs text-muted-foreground border border-border px-2 py-1 h-fit rounded-md bg-secondary/30">
-                {job.period}
-              </span>
-            </div>
 
-            <div className="flex flex-wrap gap-2 mb-4 mt-3">
-              {job.tech.map((t) => (
-                 <Badge key={t} className="bg-secondary text-secondary-foreground hover:bg-secondary/80 border-0 font-medium text-xs px-2.5 py-1">
-                    {t}
-                 </Badge>
-              ))}
-            </div>
-            
-            <ul className="list-disc list-outside ml-4 space-y-2 text-muted-foreground text-sm sm:text-base leading-relaxed">
-              {job.description.map((point, idx) => (
-                  <li key={idx}>{point}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </motion.div>
+      <Card className="bg-card/60 backdrop-blur">
+        <CardContent className="pt-2">
+          <Accordion type="single" collapsible defaultValue="item-0">
+            {DATA.experience.map((job, id) => (
+              <AccordionItem key={id} value={`item-${id}`}>
+                <AccordionTrigger className="py-5">
+                  <div className="flex w-full flex-col items-start gap-1 pr-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="text-left">
+                      <div className="text-base font-semibold text-foreground">{job.company}</div>
+                      <div className="text-sm text-muted-foreground">{job.role}</div>
+                    </div>
+                    <div className="mt-2 shrink-0 rounded-md border bg-background/40 px-2.5 py-1 text-xs font-medium text-muted-foreground sm:mt-0">
+                      <span className="font-mono">{job.period}</span>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6">
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                      {job.location ? <span>{job.location}</span> : null}
+                      {job.url ? (
+                        <>
+                          <span className="text-muted-foreground/50">•</span>
+                          <Link
+                            href={job.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline-offset-4 hover:underline"
+                          >
+                            Website
+                          </Link>
+                        </>
+                      ) : null}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {job.tech.map((t) => (
+                        <Badge key={t} variant="secondary" className="bg-secondary/60">
+                          {t}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    <ul className="grid gap-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                      {job.description.map((point, idx) => (
+                        <li key={idx} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand/70" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </CardContent>
+      </Card>
+    </motion.section>
   );
 }

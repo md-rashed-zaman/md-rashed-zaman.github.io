@@ -16,6 +16,7 @@ const iconMap: Record<string, string> = {
   "MongoDB": "mongodb/mongodb-original",
   "PostgreSQL": "postgresql/postgresql-original",
   "MySQL": "mysql/mysql-original",
+  "Kafka": "apachekafka/apachekafka-original",
   "Git": "git/git-original",
   "Postman": "postman/postman-original",
   "Docker": "docker/docker-original",
@@ -27,6 +28,8 @@ const iconMap: Record<string, string> = {
   "gRPC": "grpc/grpc-plain",
   "CI/CD": "githubactions/githubactions-original",
   "Github Actions": "githubactions/githubactions-original",
+  "GitHub Actions": "githubactions/githubactions-original",
+  "CI/CD (GitHub Actions)": "githubactions/githubactions-original",
 };
 
 export const darkInvertList = ["Express.js", "Next.js", "GitHub", "LaTeX", "Prisma"];
